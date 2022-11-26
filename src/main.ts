@@ -3,9 +3,6 @@ import App from "./App.vue";
 import router from "./router";
 
 import "./assets/main.css";
+import store from "./store";
 
-const app = createApp(App);
-
-app.use(router);
-
-app.mount("#app");
+createApp(App).use(router).use(store).mount("#app");
