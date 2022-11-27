@@ -2,7 +2,7 @@
 # Intro
 This project to improve my knowledge and challenges me to work with deadline.
 First of all, I am very grateful to the individual and organization that facilitated me to take this test. Although not fully functional to meet the deadline, I will still try to complete the work as complete as possible.
-Currently, 6:00 AM 28/11/2022, this project is not done with main requirements, there is some function was missing:
+Currently, 6:00 AM 28/11/2022, this project is not done with main requirements yet, there is some function was missing:
 1. Update post
 2. Filter, sort, search post
 3. Error handdling
@@ -11,8 +11,7 @@ Currently, 6:00 AM 28/11/2022, this project is not done with main requirements, 
 6. Structure maybe not good
 ...
 Maybe it's not good with anyone view it. But I think i tried with my best.
-About 2d with 2 days to try.
-Thank for read it!
+About 2d with 2 days to try and thank for read it!
 
 ------------------------------------------------------------------------
 Please use the API docs at https://api-placeholder.herokuapp.com, to create a the following blog
