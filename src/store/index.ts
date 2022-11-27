@@ -1,4 +1,4 @@
-import { getAllPosts, getPostById } from "@/apis/post";
+import { getAllPosts, getPostById, deletePost } from "@/apis/post";
 import { createStore } from "vuex";
 
 // Create a new store instance.
@@ -10,21 +10,24 @@ export default createStore({
   },
   mutations: {
     setLoading(state, payload) {
-      console.log(payload);
       state.isLoading = payload;
     },
   },
   actions: {
-    async getAllPost() {
+    async getAllPost(_, params) {
       this.commit("setLoading", true);
-      const res = await getAllPosts();
+      const res = await getAllPosts(params);
       this.commit("setLoading", false);
       return res;
     },
-    async getById(state, id: string) {
+    async getById(_, id: string) {
       this.commit("setLoading", true);
       const res = await getPostById(id);
       this.commit("setLoading", false);
+      return res;
+    },
+    async deletePost(_, id: number) {
+      const res = await deletePost(id);
       return res;
     },
   },

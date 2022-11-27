@@ -20,8 +20,7 @@ axiosInstance.interceptors.request.use(
 axiosInstance.interceptors.response.use(
   // handle on success
   (res: AxiosResponse) => {
-    console.log(res);
-    return res.data.data.items || res.data.data;
+    return res?.data || null;
   },
   // handle on error
   async (err: AxiosError) => {

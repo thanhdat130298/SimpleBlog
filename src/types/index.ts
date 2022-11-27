@@ -1,7 +1,7 @@
 export interface IPosts {
-  "blog[title]": string;
-  "blog[content]": string;
-  "blog[image]": File;
+  title: string;
+  content: string;
+  image: File;
 }
 export interface IPagination {
   page?: number;
@@ -14,9 +14,9 @@ interface IImg {
   url: string;
 }
 export interface IPost {
-  id: number;
+  id?: number;
   title: string;
   content: string;
-  updated_at: string;
+  updated_at?: string;
   image: IImg;
 }

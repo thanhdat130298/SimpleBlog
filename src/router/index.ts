@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
 import Home from "../views/ListPage.vue";
-import AboutView from "../views/AboutView.vue";
+import ManagePage from "../views/ManagePage.vue";
 import PostDetail from "../views/PostDetail.vue";
 
 const router = createRouter({
@@ -24,7 +24,7 @@ const router = createRouter({
     {
       path: "/manage",
       name: "manage",
-      component: AboutView,
+      component: ManagePage,
     },
   ],
 });

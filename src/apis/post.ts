@@ -1,7 +1,7 @@
 import type { IPagination, IPost, IPosts } from "@/types";
 import { request } from "../utils/request";
 export function getAllPosts(
-  pagin: IPagination = { page: 1, offset: 20 }
+  pagin: IPagination = { page: 1, offset: 7 }
 ): IPost[] {
   return request("/blogs", {
     method: "GET",
@@ -21,15 +21,23 @@ export function updatePost(id: string | number, body: IPosts) {
   });
 }
 
-export function deletePost(id: string | number) {
+export function deletePost(id: number) {
   return request(`/blogs/${id}`, {
     method: "DELETE",
   });
 }
 
 export function newPost(body: IPosts) {
+  const formData = new FormData();
+  formData.append("blog[title]", body.title);
+  formData.append("blog[content]", body.content);
+  formData.append("blog[image]", body.image);
+  const config = {
+    headers: { "content-type": "multipart/form-data" },
+  };
   return request("/blogs", {
     method: "POST",
-    body: body,
+    body: formData,
+    config,
   });
 }

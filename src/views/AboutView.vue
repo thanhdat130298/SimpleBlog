@@ -1,6 +1,6 @@
 <template>
   <div class="about">
-    <h1>FRONT-END TEST 2022</h1>
+    <div class="h4">FRONT-END TEST 2022</div>
     <p>
       Please use the API docs at https://api-placeholder.herokuapp.com, to
       create a the following blog page, using React, Angular or Vue.js
@@ -13,10 +13,16 @@
         <ol>
           <li>
             List of blogs:
-            https://getbootstrap.com/docs/4.5/components/media-object/#media-list
+            <a
+              href="https://getbootstrap.com/docs/4.5/components/media-object/#media-list"
+              >https://getbootstrap.com/docs/4.5/components/media-object/#media-list</a
+            >
           </li>
           <li>
-            Pagination: https://getbootstrap.com/docs/4.5/components/pagination
+            Pagination:
+            <a href="https://getbootstrap.com/docs/4.5/components/pagination"
+              >https://getbootstrap.com/docs/4.5/components/pagination</a
+            >
           </li>
           <li>
             Sort & search UI are up to you, but please use the Bootstrap UI as
@@ -52,5 +58,6 @@
 <style scoped>
 .about {
   font-size: 18px;
+  word-break: break-word;
 }
 </style>

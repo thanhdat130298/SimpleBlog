@@ -1,15 +1,23 @@
 <script lang="ts">
 import type { IPost } from "@/types";
 import store from "@/store";
+import Loading from "@/components/commons/CLoading.vue";
+import Heading from "@/components/commons/CHeading.vue";
 import { datetime } from "@/utils/format";
 export default {
   name: "PostDetail",
+  components: {
+    Loading,
+    Heading,
+  },
   data() {
     return {
       post: {} as IPost,
       datetime,
+      store,
     };
   },
+  created() {},
   async mounted() {
     const res = await store.dispatch("getById", this.$route.params.id);
     this.post = res;
@@ -17,7 +25,9 @@ export default {
 };
 </script>
 <template>
-  <div class="blog-post">
+  <Heading to="/posts" title="Post detail" />
+  <Loading v-if="store.state.isLoading" />
+  <div class="blog-post" v-else>
     <h2 class="blog-post-title">
       {{ post.title }}
     </h2>
@@ -30,9 +40,7 @@ export default {
       class="mr-3 img"
       :alt="post.title || 'image-thump'"
     />
-    <p class="d-content">
-      {{ post.content }}
-    </p>
+    <p class="d-content" v-html="post.content"></p>
   </div>
   <!-- /.blog-post -->
 </template>
