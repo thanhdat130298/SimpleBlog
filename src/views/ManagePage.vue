@@ -162,10 +162,10 @@ export default {
     <Item
       v-for="(post, index) in posts"
       :key="index"
-      :title="post.title"
+      :title="post.name"
       :content="post.content"
       :image="post.image.url"
-      :postId="post.id"
+      :postId="post.postId"
       :isManage="true"
       @delete="fetchData"
     />

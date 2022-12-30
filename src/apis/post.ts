@@ -1,28 +1,28 @@
 import type { IPagination, IPost, IPosts } from "@/types";
 import { request } from "../utils/request";
 export function getAllPosts(
-  pagin: IPagination = { page: 1, offset: 7 }
+  pagin: IPagination = { pageNo: 1, rowSize: 7 }
 ): IPost[] {
-  return request("/blogs", {
+  return request("/posts", {
     method: "GET",
     params: pagin,
   });
 }
 export function getPostById(id: string | number) {
-  return request(`/blogs/${id}`, {
+  return request(`/posts/${id}`, {
     method: "GET",
   });
 }
 
 export function updatePost(id: string | number, body: IPosts) {
-  return request(`/blogs/${id}`, {
+  return request(`/posts/${id}`, {
     method: "PUT",
     body: body,
   });
 }
 
 export function deletePost(id: number) {
-  return request(`/blogs/${id}`, {
+  return request(`/posts/${id}`, {
     method: "DELETE",
   });
 }
@@ -35,7 +35,7 @@ export function newPost(body: IPosts) {
   const config = {
     headers: { "content-type": "multipart/form-data" },
   };
-  return request("/blogs", {
+  return request("/posts", {
     method: "POST",
     body: formData,
     config,

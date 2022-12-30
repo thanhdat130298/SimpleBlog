@@ -18,7 +18,6 @@ export default {
       posts: [] as IPost[],
       store,
       totalPages: 0,
-      total: 0,
       currentPage: 1,
     };
   },
@@ -29,14 +28,13 @@ export default {
     },
     async fetchData() {
       const res = await store.dispatch("getAllPost", {
-        page: this.currentPage,
-        offset: 7,
+        pageNo: this.currentPage,
+        rowSize: 10,
       });
-      const { data, pagination } = res;
-      this.posts = data.items;
-
-      this.totalPages = pagination.total;
-      this.currentPage = pagination.page;
+      const { items, total, pageNo } = res;
+      this.posts = items;
+      this.totalPages = total % 10 == 0 ? total / 10 : total / 10 + 1;
+      this.currentPage = pageNo;
     },
   },
   mounted() {
@@ -49,17 +47,16 @@ export default {
   <Loading v-if="store.state.isLoading" />
   <div class="list-unstyled" v-else>
     <Item
-      v-for="(post, index) in posts"
-      :key="index"
-      :title="post.title"
+      v-for="post in posts"
+      :key="post.postId"
+      :title="post.name"
       :content="post.content"
-      :image="post.image.url"
-      :postId="post.id"
+      :image="post.name"
+      :postId="post.postId"
     />
     <CPagin
       @pagechanged="pagechanged"
       :totalPages="totalPages"
-      :total="total"
       :currentPage="currentPage"
     />
   </div>

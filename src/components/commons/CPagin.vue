@@ -16,10 +16,6 @@ export default {
       type: Number,
       required: true,
     },
-    total: {
-      type: Number,
-      required: true,
-    },
     currentPage: {
       type: Number,
       required: true,
@@ -48,6 +44,8 @@ export default {
       return this.currentPage === 1;
     },
     isInLastPage() {
+      console.log(this.currentPage, this.totalPages);
+
       return this.currentPage === this.totalPages;
     },
     startPage() {

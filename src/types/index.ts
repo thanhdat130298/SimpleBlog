@@ -4,8 +4,8 @@ export interface IPosts {
   image: File;
 }
 export interface IPagination {
-  page?: number;
-  offset?: number;
+  pageNo?: number;
+  rowSize?: number;
   search?: string;
   sort_by?: "id" | "title" | "content" | "created_at" | "updated_at";
   sort_direction?: "asc" | "desc";
@@ -14,9 +14,9 @@ interface IImg {
   url: string;
 }
 export interface IPost {
-  id?: number;
-  title: string;
+  postId?: number;
+  name: string;
   content: string;
-  updated_at?: string;
+  created?: string;
   image: IImg;
 }

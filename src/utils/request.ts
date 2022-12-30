@@ -1,5 +1,5 @@
 import axiosInstance from "@/apis/axios";
-const host = "https://api-placeholder.herokuapp.com/api/v2";
+const host = "http://localhost:8080/api/v1";
 // need split to get type
 export const request: any = (url: string, options: any, config: any) => {
   url = host + url;

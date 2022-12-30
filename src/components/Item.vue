@@ -47,11 +47,11 @@ export default {
         class="btn btn-danger btn-sm mb-1"
         @click="onDelete"
       >
-        <AddIcon class="mr-2" />
+        <!-- <AddIcon class="mr-2" /> -->
         Delete
       </button>
       <button type="button" class="btn btn-warning btn-sm" @click="onEdit">
-        <AddIcon class="mr-2" />
+        <!-- <AddIcon class="mr-2" /> -->
         Edit
       </button>
     </div>

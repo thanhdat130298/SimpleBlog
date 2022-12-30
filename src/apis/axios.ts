@@ -5,7 +5,7 @@ import axios, {
   type AxiosResponse,
 } from "axios";
 const axiosInstance = axios.create({
-  baseURL: "https://api-placeholder.herokuapp.com/api/v2",
+  baseURL: "http://localhost:8080/api/v1",
 });
 
 axiosInstance.interceptors.request.use(
@@ -20,6 +20,7 @@ axiosInstance.interceptors.request.use(
 axiosInstance.interceptors.response.use(
   // handle on success
   (res: AxiosResponse) => {
+    console.log(res);
     return res?.data || null;
   },
   // handle on error
