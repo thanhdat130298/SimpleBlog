@@ -44,8 +44,6 @@ export default {
       return this.currentPage === 1;
     },
     isInLastPage() {
-      console.log(this.currentPage, this.totalPages);
-
       return this.currentPage === this.totalPages;
     },
     startPage() {

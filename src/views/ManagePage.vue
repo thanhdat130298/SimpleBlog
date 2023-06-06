@@ -80,11 +80,12 @@ export default {
         page: this.currentPage,
         offset: 7,
       });
-      const { data, pagination } = res;
-      this.posts = data.items;
+      const { items, pageNo, total } = res;
+      console.log(res)
+      this.posts = items;
 
-      this.totalPages = pagination.total;
-      this.currentPage = pagination.page;
+      this.totalPages = total;
+      this.currentPage = pageNo;
     },
   },
   mounted() {
@@ -164,7 +165,7 @@ export default {
       :key="index"
       :title="post.name"
       :content="post.content"
-      :image="post.image.url"
+      :image="undefined"
       :postId="post.postId"
       :isManage="true"
       @delete="fetchData"

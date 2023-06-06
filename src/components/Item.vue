@@ -1,6 +1,7 @@
 <script lang="ts">
 import { deletePost } from "@/apis/post";
 import { RouterLink } from "vue-router";
+import thumb from "../assets/imgs/123.png";
 import store from "@/store";
 
 export default {
@@ -15,6 +16,7 @@ export default {
   data() {
     return {
       store,
+      thumb: thumb,
     };
   },
   components: { RouterLink },
@@ -33,7 +35,11 @@ export default {
 <template>
   <div class="d-flex justify-content-between">
     <RouterLink :to="'/posts/' + postId" class="media">
-      <img :src="image" class="mr-3 img" :alt="title || 'image-thump'" />
+      <img
+        :src="image || thumb"
+        class="mr-3 img"
+        :alt="title || 'image-thump'"
+      />
       <div class="media-body">
         <h5 class="mt-0 mb-1">{{ title }}</h5>
         <div class="d-ellipse-3">

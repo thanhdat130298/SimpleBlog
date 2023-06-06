@@ -20,6 +20,12 @@ export function updatePost(id: string | number, body: IPosts) {
     body: body,
   });
 }
+export function login(body: { username: string; password: string }) {
+  return request(`/login`, {
+    method: "POST",
+    body: body,
+  });
+}
 
 export function deletePost(id: number) {
   return request(`/posts/${id}`, {
